@@ -11,12 +11,8 @@
       <h1>BOOLFLIX</h1>
     </div>
     <nav class="search">
-      <input type="text">
-      <select name="" id="">
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-      </select>
+      <input type="text" placeholder="Search">
+      <button class="btn-search">Search</button>
     </nav>
     </div>
   </header>
@@ -37,5 +33,26 @@
   }
   h1 {
     color: $tertiary-color;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+  }
+  input {
+    padding: 6px 9px;
+    border-radius: 5px;
+    margin-right: 5px;
+
+  }
+  .btn-search {
+    widows: 125px;
+    background-color: $tertiary-color;
+    color: #FFFFFF;
+    padding: 6px 9px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: lighter;
   }
 </style>
