@@ -12,14 +12,19 @@ import axios from 'axios';
       store
     }
   },
-  mounted() {
-    axios.get(store.apiUrl)
+  methods: {
+    getMovies() {
+      axios.get(store.apiUrl)
       .then(result => {
         console.log(result.data.results)
       })
       .catch(error => {
       console.log(error)
     })
+    }
+  },
+  mounted() {
+    this.getMovies()
   }
 }
 
