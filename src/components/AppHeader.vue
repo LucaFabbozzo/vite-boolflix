@@ -13,6 +13,8 @@
       store.titleToSearch = "";
       store.originalTitleToSearch = "";
       store.originalLenguageToSearch = "";
+      store.voteAverageToSearch = "";
+      this.$emit('startSearch');
     }
   }
   }
