@@ -1,11 +1,19 @@
   <script>
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+import AppCard from './components/AppCard.vue';
   export default {
-    name: 'App'
+  name: 'App',
+  components: {AppHeader, AppMain, AppCard}
   }
   </script>
 
 <template>
-  <h1>Ciao</h1>
+    <AppHeader />
+    <main>
+      <AppMain />
+      <AppCard />
+    </main>
 </template>
 
 

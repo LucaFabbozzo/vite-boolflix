@@ -3,7 +3,20 @@
 @import 'node_modules/@fontsource/scss/index.css';
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Lato",
     sans-serif;
+}
+
+
+.container {
+  width: 95%;
+  min-width: 600px;
+  margin: 0 auto;
 }
