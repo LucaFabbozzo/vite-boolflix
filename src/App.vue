@@ -14,9 +14,14 @@ import axios from 'axios';
   },
   methods: {
     getMovies() {
-      axios.get(store.apiUrl)
+      axios.get(store.apiUrl, {
+        params: {
+          query: 'store.queryToSearch'
+        }
+      })
       .then(result => {
-        console.log(result.data.results)
+        store.moviesListData = result.data.results
+        console.log(store.moviesListData)
       })
       .catch(error => {
       console.log(error)
@@ -33,7 +38,7 @@ import axios from 'axios';
 <template>
     <AppHeader />
     <main>
-      <AppMain />
+      <AppMain @startSearch="getMovies()"/>
       <AppCard />
     </main>
 </template>

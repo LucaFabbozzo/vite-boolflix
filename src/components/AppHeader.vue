@@ -1,6 +1,12 @@
   <script>
+  import {store} from '../data/store'
   export default {
-    name: 'AppHeader'
+  name: 'AppHeader',
+  data() {
+    return {
+        store
+      }
+    }
   }
   </script>
 
@@ -11,8 +17,8 @@
       <img src="../assets/img/logo-boolflix.png" alt="Logo">
     </div>
     <nav class="search">
-      <input type="text" placeholder="Search">
-      <button class="btn-search">Search</button>
+      <input v-model="store.queryToSearch" type="text" placeholder="Search">
+      <button @click="$emit('startSearch')" class="btn-search">Search</button>
     </nav>
     </div>
   </header>
