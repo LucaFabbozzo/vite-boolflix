@@ -8,7 +8,7 @@
   <header>
     <div class="container">
     <div class="logo">
-      <h1>BOOLFLIX</h1>
+      <img src="../assets/img/logo-boolflix.png" alt="Logo">
     </div>
     <nav class="search">
       <input type="text" placeholder="Search">
@@ -24,6 +24,10 @@
   header {
     background-color: $secondary-color;
     height: 85px;
+  }
+  img {
+    width: 135px;
+    cursor: pointer;
   }
   .container {
     height: 100%;
