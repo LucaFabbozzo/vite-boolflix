@@ -6,7 +6,15 @@
     return {
         store
       }
+  },
+  methods: {
+    reset() {
+      store.queryToSearch = "";
+      store.titleToSearch = "";
+      store.originalTitleToSearch = "";
+      store.originalLenguageToSearch = "";
     }
+  }
   }
   </script>
 
@@ -16,10 +24,11 @@
     <div class="logo">
       <img src="../assets/img/logo-boolflix.png" alt="Logo">
     </div>
-    <nav class="search">
-      <input v-model="store.queryToSearch" type="text" placeholder="Search">
-      <button @click="$emit('startSearch')" class="btn-search">Search</button>
-    </nav>
+    <div class="search">
+        <input v-model="store.queryToSearch" type="text" placeholder="Search">
+        <button @click="$emit('startSearch')" class="btn-search">Search</button>
+        <button @click="reset()" class="btn-reset">Reset</button>
+    </div>
     </div>
   </header>
 </template>
@@ -55,8 +64,20 @@
 
   }
   .btn-search {
-    widows: 125px;
+    width: 125px;
     background-color: $tertiary-color;
+    color: #FFFFFF;
+    padding: 6px 9px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: lighter;
+    margin-right: 5px;
+  }
+  .btn-reset {
+    width: 80px;
+    background-color: grey;
     color: #FFFFFF;
     padding: 6px 9px;
     border: none;
