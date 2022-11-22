@@ -12,9 +12,8 @@ export default {
     <img :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
     <div class="overlay">
       <div class="text">
-        <p>{{ card.title || card.name }}</p>
-        <p>{{card.original_title}}</p>
-        <p>Language: {{card.original_language}}</p>
+        <p class="title">{{ card.title || card.name }}</p>
+        <p class="original">{{card.original_title}}</p>
         <i v-for="(item, index) in 5"
         :key="index"
         class="fa-star"
@@ -37,6 +36,17 @@ export default {
     position: relative;
     margin-bottom: 20px;
     cursor: pointer;
+    overflow: auto;
+  }
+  .title {
+    text-transform: uppercase;
+  }
+
+
+  .lang {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    padding-top: 5px;
   }
 
   img {
@@ -55,7 +65,7 @@ export default {
   width: 100%;
   opacity: 0;
   transition: .6s ease;
-  background-color: #3f3f3f;
+  background-color: #232323;
 }
 
 .card:hover .overlay {
