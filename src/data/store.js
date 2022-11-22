@@ -7,7 +7,7 @@ export const store = reactive({
   queryToSearch: "",
   titleToSearch: "",
   originalTitleToSearch: "",
-  originalLenguageToSearch: "",
+  originalLanguageToSearch: "",
   voteAverageToSearch: "",
   nameToSearch: "",
   originalNameToSearch: ""

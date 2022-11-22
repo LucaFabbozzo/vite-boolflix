@@ -19,7 +19,7 @@ export default {
           query: store.queryToSearch,
           title: store.titleToSearch,
           original_title: store.originalTitleToSearch,
-          original_language: store.originalLenguageToSearch,
+          original_language: store.originalLanguageToSearch,
           vote_average: store.voteAverageToSearch
         }
        })
