@@ -1,16 +1,11 @@
   <script>
-  import {store} from '../data/store'
-  export default {
+export default {
   name: 'AppCard',
   props: {
     card: Object,
   },
-  data() {
-    return {
-      store
-    }
-   }
-  }
+
+}
   </script>
 
 <template>

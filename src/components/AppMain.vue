@@ -6,7 +6,6 @@ import { store } from '../data/store'
   components: {AppCard},
   props: {
     title: String,
-    name: String,
     type: String
   },
   data() {

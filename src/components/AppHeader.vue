@@ -17,7 +17,7 @@
       <img src="../assets/img/logo-boolflix.png" alt="Logo">
     </div>
     <div class="search">
-        <input @keyup.enter="$emit('startSearch')" v-model.trim="store.apiParams.query" type="text" placeholder="Search">
+        <input @keyup.enter="$emit('search')" v-model.trim="store.apiParams.query" type="text" placeholder="Cerca un film">
         <select v-model="store.type" class="form-select">
           <option value="">All</option>
           <option value="movie">Film</option>

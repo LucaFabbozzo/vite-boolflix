@@ -22,11 +22,18 @@ export default {
         .catch(error => {
           console.log(error);
         })
+    },
+    startSearch() {
+    store.movie = [];
+    store.tv = [];
+    if (store.type === '') {
+      this.getApi('movie')
+      this.getApi('tv')
+    } else {
+      this.getApi(store.type)
     }
   }, 
-  startSearch() {
-    this.getApi('movie')
-    this.getApi('tv')
+
   },
   mounted() {
     this.startSearch();
@@ -36,11 +43,10 @@ export default {
   </script>
 
 <template>
-    <AppHeader @startSearch="startSearch"/>
+    <AppHeader @search="startSearch"/>
     <main>
-      <AppMain title="Film" type="movie"/>
-      <AppMain title="Serie Tv" type="tv"/>
-      <AppCard />
+      <AppMain v-if="store.movie.length > 0" title="Film" type="movie"/>
+      <AppMain v-if="store.tv.length > 0" title="Serie Tv" type="tv"/>
     </main>
 </template>
 
