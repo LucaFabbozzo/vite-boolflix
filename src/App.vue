@@ -4,7 +4,6 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppCard from './components/AppCard.vue';
 import axios from 'axios';
-import { advancePositionWithClone } from '@vue/compiler-core';
 export default {
   name: 'App',
   components: { AppHeader, AppMain, AppCard },
@@ -15,6 +14,7 @@ export default {
   },
   methods: { //https://api.themoviedb.org/3/movie/popular
     getApi(type, isPopular = false) {
+      store.isLoaded = false
       let apiUrl;
       if (isPopular) apiUrl = "https://api.themoviedb.org/3/movie/popular"
       else apiUrl = store.apiUrl + type
@@ -22,6 +22,7 @@ export default {
         .then(response => {
           store[type] = response.data.results
           // console.log(response.data.results);
+          store.isLoaded = true;
         })
         .catch(error => {
           console.log(error);
