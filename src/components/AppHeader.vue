@@ -18,7 +18,7 @@
     </div>
     <div class="search">
         <input @keyup.enter="$emit('search')" v-model.trim="store.apiParams.query" type="text" placeholder="Cerca un film">
-        <select v-model="store.type" class="form-select">
+        <select v-model="store.type" class="select">
           <option value="">All</option>
           <option value="movie">Film</option>
           <option value="tv">Serie Tv</option>
@@ -52,33 +52,9 @@
     display: flex;
     align-items: center;
   }
-  input {
+  input, select {
     padding: 6px 9px;
     border-radius: 5px;
     margin-right: 5px;
-
-  }
-  .btn-search {
-    width: 125px;
-    background-color: $tertiary-color;
-    color: #FFFFFF;
-    padding: 6px 9px;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: lighter;
-    margin-right: 5px;
-  }
-  .btn-reset {
-    width: 80px;
-    background-color: grey;
-    color: #FFFFFF;
-    padding: 6px 9px;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: lighter;
   }
 </style>

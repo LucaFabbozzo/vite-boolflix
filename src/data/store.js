@@ -9,15 +9,11 @@ export const store = reactive({
     api_key: "b47aa60d77a4dbf3638e882b64e4c97a",
     query: "",
     language: "it-IT",
+    original_title: "",
+    vote_average: "",
+    original_language: "",
+    poster_path:"",
   },
-  // moviesListData: [],
-  // queryToSearch: "",
-  // titleToSearch: "",
-  // originalTitleToSearch: "",
-  // originalLanguageToSearch: "",
-  // voteAverageToSearch: "",
-  // nameToSearch: "",
-  // originalNameToSearch: ""
 });
 
 
