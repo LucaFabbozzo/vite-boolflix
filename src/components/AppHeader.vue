@@ -32,7 +32,6 @@
 <style lang="scss" scoped>
   @use '../styles/partials/vars' as *;
   header {
-    background-color: $secondary-color;
     height: 85px;
   }
   img {

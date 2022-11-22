@@ -10,13 +10,17 @@ export default {
 
 <template>
   <div class="card"> 
-  <img :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
-  <p>{{ card.title || card.name }}</p>
-  <p>{{card.original_name}}</p>
-  <p>{{card.original_language}}</p>
-  <p>{{card.vote_average}}</p>
-  <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
-  <span v-else class="fi fi-xx"></span>
+    <img :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
+    <div class="overlay">
+      <div class="text">
+        <p>{{ card.title || card.name }}</p>
+        <p>{{card.original_name}}</p>
+        <p>{{card.original_language}}</p>
+        <p>{{card.vote_average}}</p>
+        <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
+        <span v-else class="fi fi-xx"></span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,14 +28,120 @@ export default {
 <style lang="scss" scoped>
   .card {
     width: 150px;
-    border: 1px solid grey;
-    padding: 8px 10px;
     margin: 0 auto;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
   }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+ .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #3f3f3f;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
   p {
     font-size: 0.8rem;
+    color: #ffffff;
   }
 </style>
+
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>Fade in Overlay</h2>
+<p>Hover over the image to see the effect.</p>
+
+<div class="container">
+  <img src="img_avatar.png" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">Hello World</div>
+  </div>
+</div>
+
+</body>
+</html> -->
+
+
+
 
 
 
@@ -39,15 +149,3 @@ export default {
                         <i class="fa-solid fa-star"></i>
                     </p> -->
 
-
-  <!-- <div class="container-cards" v-for="movies in store.moviesListData" :key="movies.id">
-    <div class="card">
-      <p v-if="movies.title">Titolo: {{movies.title}}</p>
-      <p v-else>Titolo: {{movies.name}}</p>
-      <p v-if="movies.original_title">Titolo Originale: {{movies.original_title}}</p>
-      <p v-else>{{movies.original_name}}</p>
-      <span v-if="movies.original_language" :class="'fi fi-' + movies.original_language"></span>
-      <span v-else class="fi fi-xx"></span>
-      <p>Rating: {{movies.vote_average}}</p>
-    </div>
-  </div> -->
