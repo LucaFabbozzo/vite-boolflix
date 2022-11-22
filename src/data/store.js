@@ -13,7 +13,8 @@ export const store = reactive({
     original_title: "",
     vote_average: "",
     original_language: "",
-    poster_path:"",
+    poster_path: "",
+    overview: ""
   },
 });
 

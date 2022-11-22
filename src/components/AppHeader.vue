@@ -7,6 +7,12 @@
         store
       }
   },
+  methods: {
+    reset() {
+      store.apiParams.query = '';
+      store.type = '';
+    }
+  }
   }
   </script>
 
@@ -23,6 +29,7 @@
           <option value="movie">Film</option>
           <option value="tv">Serie Tv</option>
         </select>
+        <button @click="reset()"><i class="fa-sharp fa-solid fa-rotate-left"></i></button>
     </div>
     </div>
   </header>
@@ -51,9 +58,12 @@
     display: flex;
     align-items: center;
   }
-  input, select {
+  input, select, button {
     padding: 6px 9px;
     border-radius: 5px;
     margin-right: 5px;
+    border: none;
+    background-color: #ffffff;
   }
+
 </style>

@@ -22,21 +22,23 @@ import { store } from '../data/store'
       {{title}}
     </h1>
 
-    <div class="container-cards"> 
+    <div v-if="store.isLoaded" class="container-cards"> 
       <AppCard v-for="card in store[type]" :key="card.id" :card="card"/>
     </div>
+    <div class="loading" v-else >
+      <div class="loadingio-spinner-ripple-gzy0tnl9e64">
+      <div class="ldio-1jh1p2axrkh">
+      <div></div><div></div>
+      </div></div>
+    </div>
   </main>
-  <div class="loading" v-else >
-    <div class="loadingio-spinner-ripple-gzy0tnl9e64">
-    <div class="ldio-1jh1p2axrkh">
-    <div></div><div></div>
-    </div></div>
-  </div>
+  
  
 </template>
 
 
 <style lang="scss" scoped>
+@use '../styles/partials/vars' as *;
   .container-cards {
     display: flex;
     flex-wrap: wrap;
@@ -77,11 +79,11 @@ import { store } from '../data/store'
     border-radius: 50%;
     animation: ldio-1jh1p2axrkh 1s cubic-bezier(0,0.2,0.8,1) infinite;
   }.ldio-1jh1p2axrkh div:nth-child(1) {
-    border-color: #e90c59;
+    border-color: $tertiary-color;
     animation-delay: 0s;
   }
   .ldio-1jh1p2axrkh div:nth-child(2) {
-    border-color: #46dff0;
+    border-color: $secondary-color;
     animation-delay: -0.5s;
   }
   .loadingio-spinner-ripple-gzy0tnl9e64 {

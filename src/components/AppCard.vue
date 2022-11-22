@@ -84,7 +84,7 @@ export default {
 }
 
   p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     margin-bottom: 3px;
     color: #ffffff;
     text-transform: capitalize;
