@@ -7,16 +7,6 @@
         store
       }
   },
-  methods: {
-    reset() {
-      store.queryToSearch = "";
-      store.titleToSearch = "";
-      store.originalTitleToSearch = "";
-      store.originalLenguageToSearch = "";
-      store.voteAverageToSearch = "";
-      this.$emit('startSearch');
-    }
-  }
   }
   </script>
 
@@ -27,9 +17,12 @@
       <img src="../assets/img/logo-boolflix.png" alt="Logo">
     </div>
     <div class="search">
-        <input v-model="store.queryToSearch" type="text" placeholder="Search">
-        <button @click="$emit('startSearch')" class="btn-search">Search</button>
-        <button @click="reset()" class="btn-reset">Reset</button>
+        <input @keyup.enter="$emit('startSearch')" v-model.trim="store.apiParams.query" type="text" placeholder="Search">
+        <select v-model="store.type" class="form-select">
+          <option value="">All</option>
+          <option value="movie">Film</option>
+          <option value="tv">Serie Tv</option>
+        </select>
     </div>
     </div>
   </header>

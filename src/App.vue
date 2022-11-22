@@ -13,37 +13,33 @@ export default {
     }
   },
   methods: {
-    getMovies() {
-      axios.get(store.apiUrl, {
-        params: {
-          query: store.queryToSearch,
-          title: store.titleToSearch,
-          original_title: store.originalTitleToSearch,
-          original_language: store.originalLanguageToSearch,
-          vote_average: store.voteAverageToSearch
-        }
-       })
-      .then(result => {
-        store.moviesListData = result.data.results
-        console.log(store.moviesListData)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    getApi(type) {
+      axios.get(store.apiUrl + type, { params: store.apiParams })
+        .then(response => {
+          store[type] = response.data.results
+          // console.log(response.data.results);
+        })
+        .catch(error => {
+          console.log(error);
+        })
     }
+  }, 
+  startSearch() {
+    this.getApi('movie')
+    this.getApi('tv')
   },
   mounted() {
-    this.getMovies()
+    this.startSearch();
   }
-
 }
 
   </script>
 
 <template>
-    <AppHeader @startSearch="getMovies()"/>
+    <AppHeader @startSearch="startSearch"/>
     <main>
-      <AppMain />
+      <AppMain title="Film" type="movie"/>
+      <AppMain title="Serie Tv" type="tv"/>
       <AppCard />
     </main>
 </template>

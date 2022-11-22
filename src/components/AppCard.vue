@@ -1,11 +1,20 @@
   <script>
+  import {store} from '../data/store'
   export default {
-   name: 'AppCard'
+  name: 'AppCard',
+  props: {
+    card: Object,
+  },
+  data() {
+    return {
+      store
+    }
+   }
   }
   </script>
 
 <template>
-  <p>CARD</p>
+  <div> - {{ card.title || card.name }} - </div>
 </template>
 
 
