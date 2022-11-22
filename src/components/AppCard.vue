@@ -30,6 +30,7 @@ export default {
 
 
 <style lang="scss" scoped>
+@use '../styles/partials/vars' as *;
   .card {
     width: 150px;
     margin: 0 auto;
@@ -65,7 +66,11 @@ export default {
   width: 100%;
   opacity: 0;
   transition: .6s ease;
-  background-color: #232323;
+   background-image: 
+    linear-gradient(
+      lighten($primary-color, 2%),
+      lighten($primary-color, 30%)
+      );
 }
 
 .card:hover .overlay {
