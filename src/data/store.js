@@ -7,7 +7,7 @@ export const store = reactive({
   type: "",
   apiParams: {
     api_key: "b47aa60d77a4dbf3638e882b64e4c97a",
-    query: "matrix",
+    query: "",
     language: "it-IT",
   },
   // moviesListData: [],

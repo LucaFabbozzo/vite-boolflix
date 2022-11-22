@@ -4,6 +4,7 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppCard from './components/AppCard.vue';
 import axios from 'axios';
+import { advancePositionWithClone } from '@vue/compiler-core';
 export default {
   name: 'App',
   components: { AppHeader, AppMain, AppCard },
@@ -12,9 +13,12 @@ export default {
       store
     }
   },
-  methods: {
-    getApi(type) {
-      axios.get(store.apiUrl + type, { params: store.apiParams })
+  methods: { //https://api.themoviedb.org/3/movie/popular
+    getApi(type, isPopular = false) {
+      let apiUrl;
+      if (isPopular) apiUrl = "https://api.themoviedb.org/3/movie/popular"
+      else apiUrl = store.apiUrl + type
+      axios.get(apiUrl, { params: store.apiParams })
         .then(response => {
           store[type] = response.data.results
           // console.log(response.data.results);
@@ -36,7 +40,7 @@ export default {
 
   },
   mounted() {
-    this.startSearch();
+    this.getApi('movie', true);
   }
 }
 
