@@ -9,11 +9,11 @@ export default {
 
 <template>
   <div class="card"> 
-    <img :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
+    <img v-show="card.poster_path != ''" :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
     <div class="overlay">
       <div class="text">
         <p class="title">{{ card.title || card.name }}</p>
-        <p class="original">{{card.original_title}}</p>
+        <p>{{card.original_title}}</p>
         <i v-for="(item, index) in 5"
         :key="index"
         class="fa-star"
