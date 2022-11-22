@@ -19,7 +19,9 @@ export default {
         :key="index"
         class="fa-star"
         :class="index < Math.ceil(card.vote_average / 2) ? 'fas' : 'far'"></i>
-        <p>Rating: {{Math.ceil(card.vote_average / 2)}}</p>
+         <p>Rating: {{Math.ceil(card.vote_average / 2)}}</p>
+        <span v-if="card.original_language === 'en'" :class="'fi fi-' + 'gb'"></span>
+        <span v-if="card.original_language === 'uk'" :class="'fi fi-' + 'gb'"></span>
         <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
         <span v-else class="fi fi-xx"></span>
       </div>
@@ -73,7 +75,7 @@ export default {
 
   p {
     font-size: 0.7rem;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     color: #ffffff;
     text-transform: capitalize;
   }
