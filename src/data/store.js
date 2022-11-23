@@ -15,7 +15,6 @@ export const store = reactive({
     original_language: "",
     poster_path: "",
     overview: "",
-    noCover: "../assets/img/no-cover.png"
   },
 });
 

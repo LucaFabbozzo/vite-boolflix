@@ -11,10 +11,11 @@ export default {
   <div class="card"> 
     <img v-if="card.poster_path === null" src="../assets/img/no-cover.png">
     <img v-else :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
-    <div class="overlay">
-      <div class="text">
+    <div class="details">
+      <div class="center">
         <p class="title">{{ card.title || card.name }}</p>
         <p>{{card.original_title}}</p>
+        <p class="overview">{{card.overview}}</p>
         <i v-for="(item, index) in 5"
         :key="index"
         class="fa-star"
@@ -33,65 +34,110 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/partials/vars' as *;
   .card {
-    width: 150px;
+    width: 180px;
+    height: 270px;
     margin: 0 auto;
     position: relative;
     margin-bottom: 20px;
     cursor: pointer;
-    overflow: auto;
   }
-  .title {
+  p.title {
     text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.7rem;
   }
 
-
-  .lang {
-    text-transform: uppercase;
+  p.overview {
+    font-weight: lighter;
     font-size: 0.6rem;
-    padding-top: 5px;
   }
 
   img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 
- .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .6s ease;
-   background-image: 
-    linear-gradient(
-      lighten($primary-color, 2%),
-      lighten($primary-color, 30%)
-      );
+
+
+.card img {
+    overflow: hidden;
+}
+.card img {
+    transition: .5s;
+}
+.card:hover img {
+    opacity: .5;
+    transform: translateX(30%);/*100%*/
+}
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;/*100%*/
+    height: 100%;
+    background: #ffffff;
+    transition: .5s;
+    transform-origin: left;
+    transform: perspective(2000px) rotateY(-90deg);
+    overflow: auto;
+}
+.card:hover .details {
+    transform: perspective(2000px) rotateY(0deg);
+}
+.card .details .center {
+    padding: 5px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-30%);
+}
+.card .details .center h1 {
+    margin: 0;
+    padding: 0;
+    color: #ff3636;
+    line-height: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.card .details .center h1 span {
+    font-size: 14px;
+    color: #262626;
+}
+.card .details .center p {
+    margin: 10px 0;
+    padding: 0;
+    color: #262626;
+}
+.card .details .center ul {
+    margin: 10px auto 0;
+    padding: 0;
+    display: table;
+}
+.card .details .center ul li {
+    list-style: none;
+    margin: 0 5px;
+    float: left;
+}
+.card .details .center ul li a {
+    display: block;
+    background: #262626;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transform: .5s;
+}
+.card .details .center ul li a:hover {
+    background: #ff3636;
 }
 
-.card:hover .overlay {
-  opacity: 1;
-}
-
-.text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 
   p {
     font-size: 0.5rem;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     color: #ffffff;
     text-transform: capitalize;
   }
@@ -99,8 +145,6 @@ export default {
     font-size: 0.5rem;
   }
 </style>
-
-
 
 
 
