@@ -9,7 +9,8 @@ export default {
 
 <template>
   <div class="card"> 
-    <img v-show="card.poster_path != ''" :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
+    <img v-if="card.poster_path === null" src="../assets/img/no-cover.png">
+    <img v-else :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
     <div class="overlay">
       <div class="text">
         <p class="title">{{ card.title || card.name }}</p>

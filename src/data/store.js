@@ -14,7 +14,8 @@ export const store = reactive({
     vote_average: "",
     original_language: "",
     poster_path: "",
-    overview: ""
+    overview: "",
+    noCover: "../assets/img/no-cover.png"
   },
 });
 
