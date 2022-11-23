@@ -14,7 +14,7 @@ export default {
     <div class="details">
       <div class="center">
         <p class="title">{{ card.title || card.name }}</p>
-        <p>{{card.original_title}}</p>
+        <p class="original"><span class="small">Titolo Originale:</span>--{{card.original_title}}--</p>
         <p class="overview">{{card.overview}}</p>
         <i v-for="(item, index) in 5"
         :key="index"
@@ -41,10 +41,18 @@ export default {
     margin-bottom: 20px;
     cursor: pointer;
   }
-  p.title {
+  .title {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 0.7rem;
+    color: #b5b5b5;
+  }
+
+  .original {
+    text-transform: uppercase;
+    .small {
+      text-transform: capitalize;
+    }
   }
 
   p.overview {
@@ -59,8 +67,6 @@ export default {
     object-fit: cover;
   }
 
-
-
 .card img {
     overflow: hidden;
 }
@@ -69,7 +75,7 @@ export default {
 }
 .card:hover img {
     opacity: .5;
-    transform: translateX(30%);/*100%*/
+    transform: translateX(10%);/*100%*/
 }
 .card .details {
     position: absolute;
@@ -77,7 +83,11 @@ export default {
     left: 0;
     width: 90%;/*100%*/
     height: 100%;
-    background: #3A3A3A;
+     background-image: 
+    linear-gradient(
+      lighten($primary-color, 5%),
+      lighten($primary-color, 20%)
+      );
     transition: .5s;
     transform-origin: left;
     transform: perspective(2000px) rotateY(-90deg);
@@ -88,7 +98,6 @@ export default {
 }
 .card .details .center {
     padding: 5px;
-    background: #3A3A3A;
     position: absolute;
     top: 50%;
     transform: translateY(-30%);
@@ -108,7 +117,7 @@ export default {
 .card .details .center p {
     margin: 10px 0;
     padding: 0;
-    color: #ffffff;
+    // color: #ffffff;
 }
 .card .details .center ul {
     margin: 10px auto 0;
@@ -138,8 +147,8 @@ export default {
   p {
     font-size: 0.5rem;
     margin-bottom: 2px;
-    color: #ffffff;
     text-transform: capitalize;
+    color: #ffffff;
   }
   i {
     font-size: 0.5rem;
