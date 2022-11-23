@@ -14,7 +14,7 @@ export default {
     <div class="details">
       <div class="center force">
         <p class="title">{{ card.title || card.name }}</p>
-        <p class="original"><span class="small">Titolo Originale: </span>{{card.original_title}}</p>
+        <p v-if="card.original_title != card.title || card.name" class="original"><span class="small">Titolo Originale: </span>{{card.original_title}}</p>
         <p class="overview">{{card.overview}}</p>
         <i v-for="(item, index) in 5"
         :key="index"
