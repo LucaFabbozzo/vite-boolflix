@@ -12,9 +12,9 @@ export default {
     <img v-if="card.poster_path === null" src="../assets/img/no-cover.png">
     <img v-else :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
     <div class="details">
-      <div class="center">
+      <div class="center force">
         <p class="title">{{ card.title || card.name }}</p>
-        <p class="original"><span class="small">Titolo Originale:</span>--{{card.original_title}}--</p>
+        <p class="original"><span class="small">Titolo Originale: </span>{{card.original_title}}</p>
         <p class="overview">{{card.overview}}</p>
         <i v-for="(item, index) in 5"
         :key="index"
@@ -67,6 +67,8 @@ export default {
     object-fit: cover;
   }
 
+
+  // flip-card
 .card img {
     overflow: hidden;
 }
@@ -93,6 +95,7 @@ export default {
     transform: perspective(2000px) rotateY(-90deg);
     overflow: auto;
 }
+
 .card:hover .details {
     transform: perspective(2000px) rotateY(0deg);
 }
@@ -102,14 +105,7 @@ export default {
     top: 50%;
     transform: translateY(-30%);
 }
-// .card .details .center h1 {
-//     margin: 0;
-//     padding: 0;
-//     color: #ff3636;
-//     line-height: 20px;
-//     font-size: 20px;
-//     text-transform: uppercase;
-// // }
+
 .card .details .center h1 span {
     font-size: 14px;
     color: #ffffff;
@@ -139,9 +135,8 @@ export default {
     text-align: center;
     transform: .5s;
 }
-// .card .details .center ul li a:hover {
-//     background: #ff3636;
-// }
+
+// end flip card code
 
 
   p {
@@ -154,7 +149,6 @@ export default {
     font-size: 0.5rem;
     color: #ffffff;
   }
+
 </style>
-
-
 
