@@ -77,7 +77,7 @@ export default {
     left: 0;
     width: 90%;/*100%*/
     height: 100%;
-    background: #ffffff;
+    background: #3A3A3A;
     transition: .5s;
     transform-origin: left;
     transform: perspective(2000px) rotateY(-90deg);
@@ -88,27 +88,27 @@ export default {
 }
 .card .details .center {
     padding: 5px;
-    background: #fff;
+    background: #3A3A3A;
     position: absolute;
     top: 50%;
     transform: translateY(-30%);
 }
-.card .details .center h1 {
-    margin: 0;
-    padding: 0;
-    color: #ff3636;
-    line-height: 20px;
-    font-size: 20px;
-    text-transform: uppercase;
-}
+// .card .details .center h1 {
+//     margin: 0;
+//     padding: 0;
+//     color: #ff3636;
+//     line-height: 20px;
+//     font-size: 20px;
+//     text-transform: uppercase;
+// // }
 .card .details .center h1 span {
     font-size: 14px;
-    color: #262626;
+    color: #ffffff;
 }
 .card .details .center p {
     margin: 10px 0;
     padding: 0;
-    color: #262626;
+    color: #ffffff;
 }
 .card .details .center ul {
     margin: 10px auto 0;
@@ -122,7 +122,7 @@ export default {
 }
 .card .details .center ul li a {
     display: block;
-    background: #262626;
+    background: #ffffff;
     color: #fff;
     width: 30px;
     height: 30px;
@@ -130,9 +130,9 @@ export default {
     text-align: center;
     transform: .5s;
 }
-.card .details .center ul li a:hover {
-    background: #ff3636;
-}
+// .card .details .center ul li a:hover {
+//     background: #ff3636;
+// }
 
 
   p {
@@ -143,6 +143,7 @@ export default {
   }
   i {
     font-size: 0.5rem;
+    color: #ffffff;
   }
 </style>
 
