@@ -30,6 +30,7 @@
           <option value="movie">Film</option>
           <option value="tv">Serie Tv</option>
         </select>
+        <button class="btn-search" @click="$emit('search')">Search</button>
         <button @click="reset()"><i class="fa-solid fa-rotate-right"></i></button>
     </div>
     </div>
@@ -59,6 +60,46 @@
     display: flex;
     align-items: center;
   }
+
+  .btn-search {
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    width: 150px;
+  }
+
+   .btn-search::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      red, blue, deeppink, blue,
+      red, blue, deeppink, blue,
+    );
+    background-size: 800%;
+    border-radius: 10px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+   }
+
+    @keyframes glowing {
+    0%{
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+   }
+
   input, select, button {
     padding: 10px 14px;
     border-radius: 2px;
@@ -68,8 +109,8 @@
   }
 
   select {
-    background-color: $tertiary-color;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     cursor: pointer; 
   }
  

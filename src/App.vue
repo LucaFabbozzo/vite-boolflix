@@ -16,12 +16,12 @@ export default {
     getApi(type, isPopular = false) {
       store.isLoaded = false
       let apiUrl;
-      if (isPopular) apiUrl = "https://api.themoviedb.org/3/movie/popular"
+      if (isPopular) apiUrl = "https://api.themoviedb.org/3/trending/all/day"
       else apiUrl = store.apiUrl + type
       axios.get(apiUrl, { params: store.apiParams })
         .then(response => {
           store[type] = response.data.results
-          // console.log(response.data.results);
+          // console.log(response.data.results)
           store.isLoaded = true;
         })
         .catch(error => {
@@ -29,8 +29,8 @@ export default {
         })
     },
     startSearch() {
-    store.movie = [];
-    store.tv = [];
+      store.movie = [];
+      store.tv = [];
     if (store.type === '') {
       this.getApi('movie')
       this.getApi('tv')
