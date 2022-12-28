@@ -1,4 +1,4 @@
-  <script>
+<script>
   import {store} from '../data/store'
   export default {
   name: 'AppHeader',
@@ -24,7 +24,10 @@
       <img src="../assets/img/logo-boolflix.png" alt="Logo">
     </div>
     <div class="search">
-        <input @keyup.enter="$emit('search')" v-model.trim="store.apiParams.query" type="text" placeholder="Cerca un film">
+       <!--  È possibile utilizzare $emit per inviare dati da un componente figlio a un componente padre o viceversa -->
+        <input 
+        @keyup.enter="$emit('search')" 
+        v-model.trim="store.apiParams.query" type="text" placeholder="Cerca un film">
         <select v-model="store.type" class="select">
           <option value="">All</option>
           <option value="movie">Film</option>
@@ -39,10 +42,10 @@
 
 
 <style lang="scss" scoped>
-  @use '../styles/partials/vars' as *;
+@use '../styles/partials/vars' as *;
   header {
     height: 85px;
-  }
+
   img {
     width: 135px;
     cursor: pointer;
@@ -56,10 +59,10 @@
   h1 {
     color: $tertiary-color;
   }
-  .search {
-    display: flex;
-    align-items: center;
-  }
+    .search {
+      display: flex;
+      align-items: center;
+    }
 
   .btn-search {
     background-color: $primary-color;
@@ -113,6 +116,5 @@
     color: #000000;
     cursor: pointer; 
   }
- 
-
+ }
 </style>

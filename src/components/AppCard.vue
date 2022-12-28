@@ -103,7 +103,7 @@ export default {
     padding: 5px;
     position: absolute;
     top: 50%;
-    transform: translateY(-30%);
+    transform: translateY(-20%);
 }
 
 .card .details .center h1 span {
